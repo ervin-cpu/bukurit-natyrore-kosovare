@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukuritë natyrore të Kosovës</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+      }
+
+      .shiriti {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-left: 10%;
+        align-items: center;
+        width: 80%;
+        height: 0.1%;
+        background-color: #f1f1f1;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .shiriti h4 {
+        margin: 2px 0;
+        line-height: 1.2; 
+    }
+
+    /* MODAL STYLES */
+    .modal {
+        display: none; /* Fillimisht e fshehur */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Stilizimi i linkut */
+    .modal-content a {
+        display: inline-block;
+        text-decoration: none;
+        color: blue;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: 1px solid blue;
+        border-radius: 5px;
+    }
+
+    .modal-content a:hover {
+        background-color: blue;
+        color: white;
+    }
+
+      .card-container1 {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding: 20px;
+          flex-wrap: wrap; 
+      }
+
+      .text-container1 {
+          width: 55%; 
+          padding: 20px;
+      }
+
+      .text-container1 h3 {
+          margin-top: 0;
+          font-size: 24px;
+          color: #333;
+      }
+
+      .text-container1 p {
+          margin: 10px 0;
+          line-height: 1.6;
+          color: #555;
+      }
+
+      .image-container {
+          width: 40%;
+          display: flex;
+          flex-direction: column; 
+          justify-content: space-between;
+          gap: 20px; 
+      }
+
+      .image-container img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          max-height: 200px; 
+      }
+
+      @media (max-width: 768px) {
+          .card-container1 {
+              flex-direction: column;
+          }
+          .image-container {
+              width: 100%;
+              margin-bottom: 20px;
+          }
+          .text-container1 {
+              width: 100%;
+          }
+      }
+
+      .btn {
+        background: #555;
+        color: #fff;
+        display: inline-block; 
+        padding: 10px 30px; 
+        text-decoration: none;
+        border-radius: 4px;
+        text-align: center; 
+        width: 25%;
+        max-width: 300px; 
+        margin-top: 10px;
+    }
+    
+  </style>
+</head>
+<body>
+
+    <div class="shiriti">
+        <div class="opsioni1" onclick="hapModal('projekti1')">
+            <h4 id="desc1">Të gjitha projektet e Ervinit</h4>
+        </div>
+        <div class="opsioni2" onclick="hapModal('bukuria')">
+            <h4 id="desc2">Gjej bukurinë natyrore që dëshiron ta shikosh</h4>
+        </div>
+        <div class="opsioni3" onclick="hapModal('pamja')">
+            <h4 id="desc3">Zgjidh Gjuhen tende</h4>
+        </div>
+    </div>
+
+    <!-- MODAL (Fshehur fillimisht) -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="mbyllModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Përmbajtja e ndryshueshme do të shfaqet këtu -->
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container1">
+        <div class="text-container1">
+            <h3 id="title1">Liqeni i Mirushes – Një Pasuri Natyrorë e Kosovës</h3>
+            <p id="desc4">Liqeni i Mirushes ndodhet në jug të Kosovës, në afërsi të qytetit të Pejës. Ky liqen natyror është i njohur për bukurinë e tij natyrore dhe peizazhet mahnitëse që ofron. I rrethuar nga malet dhe pyjet, liqeni është një destinacion i shkëlqyer për ata që duan të kalojnë kohë në natyrë.</p>
+            <p id="desc5">Liqeni ka një sipërfaqe të vogël, por është një vend i preferuar për vizitorët që kërkojnë qetësi dhe relaks. Vendet për kamping, ecje dhe piknik janë disa nga mundësitë që ky liqen ofron për turistët.</p>
+
+            <div class="text-container2">
+                <h4 id="title2">Turizmi dhe Rekreacioni</h4>
+                <p id="desc6">Liqeni i Mirushes është i njohur për mundësitë që ofron për aktivitete si ecje, fotografi, dhe sporte të ujit. Vizitorët mund të shijojnë natyrën e paprekur dhe të kalojnë momente të paharrueshme në këtë vend të qetë dhe të bukur.</p>
+                <p id="desc7">Me peizazhet e tij të mrekullueshme dhe ujërat e kristalta, ky liqen është një nga atraksionet natyrore që duhet vizituar kur jeni në Kosovë.</p>
+            </div>
+            <a href="index.html" class="btn" id="desc8">Kthehu prapa</a>
+        </div>
+
+        <div class="image-container">
+            <img src="Liqeni i Mirushes.png" alt="Liqeni Mirushes">
+            <img src="Liqeni i Mirushes1.png" alt="Liqeni Mirushes 2">
+        </div>
+    </div>
+
+    <script>
+        function hapModal(opcioni) {
+            let modal = document.getElementById("myModal");
+            let modalContent = document.getElementById("modalContent");
+
+            if (opcioni === 'projekti1') {
+                modalContent.innerHTML = `
+                    <h2>Të gjitha projektet e Ervinit</h2>
+                    <p>Këtu mund të shikoni të gjitha projektet që ka bërë Ervini.</p>
+                    <a href="https://ervin-cpu.github.io/Harta-e-botes/" target="_blank">https://ervin-cpu.github.io/Harta-e-botes/</a>
+                `;
+            } else if (opcioni === 'bukuria') {
+                modalContent.innerHTML = `
+                    <h2>Gjej bukurinë natyrore</h2> 
+                    <p>Malet</p>
+                    <a href="malet e sharrit.html" class="btn">Malet e sharrit</a>
+                    <a href="malet e rugoves.html" class="btn">Malet e Rugoves</a>
+                    <a href="malet e gjeravices.html" class="btn">Malet e Gjeravices</a>
+                    <p>Liqenet</p>
+                    <a href="Liqeni i Ujmanit.html" class="btn">Liqeni i Ujmanit</a>
+                    <a href="Liqeni i Mirushes.html" class="btn">Liqeni i Mirushes</a>
+                    <a href="Liqeni i Breznes.html" class="btn">Liqeni i Breznes</a>
+                `;
+            }
+             else if (opcioni === 'pamja') {
+                modalContent.innerHTML = `
+                    <h2>Zgjidh Gjuhen tende</h2>
+                    <button onclick="ndryshoGjuhe('en')">English</button>
+                    <button onclick="ndryshoGjuhe('sq')">Shqip</button>
+                `;
+            }
+
+            modal.style.display = "flex";
+        }
+
+        function mbyllModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Mbyll modal kur klikon jashtë
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Funksioni për të ndryshuar gjuhën
+        function ndryshoGjuhe(gjuha) {
+            if (gjuha === 'en') {
+                document.getElementById("desc1").innerText = "All of Ervin's projects";
+                document.getElementById("desc2").innerText = "Find the natural beauty you want to see";
+                document.getElementById("desc3").innerText = "Choose your language";
+                document.getElementById("title1").innerText = "Lake Mirush – A Natural Treasure of Kosovo";
+                document.getElementById("desc4").innerText = "Lake Mirush is located in the south of Kosovo, near the city of Peja. This natural lake is known for its natural beauty and stunning landscapes. Surrounded by mountains and forests, the lake is a great destination for those who want to spend time in nature.";
+                document.getElementById("desc5").innerText = "The lake has a small surface area but is a favorite spot for visitors seeking tranquility and relaxation. Camping, hiking, and picnic spots are some of the options this lake offers to tourists.";
+                document.getElementById("title2").innerText = "Tourism and Recreation";
+                document.getElementById("desc6").innerText = "Lake Mirush is known for the opportunities it offers for activities such as hiking, photography, and water sports. Visitors can enjoy unspoiled nature and create unforgettable moments in this peaceful and beautiful place.";
+                document.getElementById("desc7").innerText = "With its stunning landscapes and crystal-clear waters, this lake is one of the natural attractions that should be visited when you are in Kosovo.";
+                document.getElementById("desc8").innerText = "Go back";
+            }else if (gjuha === 'sq') {
+                document.getElementById("desc1").innerText = "Të gjitha projektet e Ervinit";
+                document.getElementById("desc2").innerText = "Gjej bukurinë natyrore që dëshiron ta shikosh";
+                document.getElementById("desc3").innerText = "Zgjidh Gjuhen tende";
+                document.getElementById("title1").innerText = "Liqeni i Mirushes – Një Pasuri Natyrorë e Kosovës";
+                document.getElementById("desc4").innerText = "Liqeni i Mirushes ndodhet në jug të Kosovës, në afërsi të qytetit të Pejës. Ky liqen natyror është i njohur për bukurinë e tij natyrore dhe peizazhet mahnitëse që ofron. I rrethuar nga malet dhe pyjet, liqeni është një destinacion i shkëlqyer për ata që duan të kalojnë kohë në natyrë.";
+                document.getElementById("desc5").innerText = "Liqeni ka një sipërfaqe të vogël, por është një vend i preferuar për vizitorët që kërkojnë qetësi dhe relaks. Vendet për kamping, ecje dhe piknik janë disa nga mundësitë që ky liqen ofron për turistët.";
+                document.getElementById("title2").innerText = "Turizmi dhe Rekreacioni";
+                document.getElementById("desc6").innerText = "Liqeni i Mirushes është i njohur për mundësitë që ofron për aktivitete si ecje, fotografi, dhe sporte të ujit. Vizitorët mund të shijojnë natyrën e paprekur dhe të kalojnë momente të paharrueshme në këtë vend të qetë dhe të bukur.";
+                document.getElementById("desc7").innerText = "Me peizazhet e tij të mrekullueshme dhe ujërat e kristalta, ky liqen është një nga atraksionet natyrore që duhet vizituar kur jeni në Kosovë.";
+                document.getElementById("desc8").innerText = "Kthehu prapa";
+            }
+        }
+
+        // Sigurohemi që modal NUK shfaqet kur faqja hapet
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("myModal").style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

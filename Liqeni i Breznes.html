@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukuritë natyrore të Kosovës</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+      }
+
+      .shiriti {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-left: 10%;
+        align-items: center;
+        width: 80%;
+        height: 0.1%;
+        background-color: #f1f1f1;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .shiriti h4 {
+        margin: 2px 0;
+        line-height: 1.2; 
+    }
+
+    /* MODAL STYLES */
+    .modal {
+        display: none; /* Fillimisht e fshehur */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Stilizimi i linkut */
+    .modal-content a {
+        display: inline-block;
+        text-decoration: none;
+        color: blue;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: 1px solid blue;
+        border-radius: 5px;
+    }
+
+    .modal-content a:hover {
+        background-color: blue;
+        color: white;
+    }
+
+      .card-container1 {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding: 20px;
+          flex-wrap: wrap; 
+      }
+
+      .text-container1 {
+          width: 55%; 
+          padding: 20px;
+      }
+
+      .text-container1 h3 {
+          margin-top: 0;
+          font-size: 24px;
+          color: #333;
+      }
+
+      .text-container1 p {
+          margin: 10px 0;
+          line-height: 1.6;
+          color: #555;
+      }
+
+      .image-container {
+          width: 40%;
+          display: flex;
+          flex-direction: column; 
+          justify-content: space-between;
+          gap: 20px; 
+      }
+
+      .image-container img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          max-height: 200px; 
+      }
+
+      @media (max-width: 768px) {
+          .card-container1 {
+              flex-direction: column;
+          }
+          .image-container {
+              width: 100%;
+              margin-bottom: 20px;
+          }
+          .text-container1 {
+              width: 100%;
+          }
+      }
+
+      .btn {
+        background: #555;
+        color: #fff;
+        display: inline-block; 
+        padding: 10px 30px; 
+        text-decoration: none;
+        border-radius: 4px;
+        text-align: center; 
+        width: 25%;
+        max-width: 300px; 
+        margin-top: 10px;
+    }
+    
+  </style>
+</head>
+<body>
+
+    <div class="shiriti">
+        <div class="opsioni1" onclick="hapModal('projekti1')">
+            <h4 id="desc1">Të gjitha projektet e Ervinit</h4>
+        </div>
+        <div class="opsioni2" onclick="hapModal('bukuria')">
+            <h4 id="desc2">Gjej bukurinë natyrore që dëshiron ta shikosh</h4>
+        </div>
+        <div class="opsioni3" onclick="hapModal('pamja')">
+            <h4 id="desc3">Zgjidh Gjuhen tende</h4>
+        </div>
+    </div>
+
+    <!-- MODAL (Fshehur fillimisht) -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="mbyllModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Përmbajtja e ndryshueshme do të shfaqet këtu -->
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container1">
+        <div class="text-container1">
+            <h3 id="title1">Liqeni i Breznes – Një Perlë Natyrorë e Kosovës</h3>
+            <p id="desc4">Liqeni i Breznes është një liqen i vogël dhe i bukur që ndodhet në jugperëndim të Kosovës, afër qytetit të Pejës. Ky liqen është një nga destinacionet më tërheqëse për natyralistët dhe turistët që kërkojnë të shijojnë qetësinë dhe bukurinë e natyrës.</p>
+            <p id="desc5">Me një sipërfaqe modeste, ky liqen ofron pamje mahnitëse dhe është i njohur për pasurinë e tij natyrore dhe biodiversitetin. Liqeni është një vend i shkëlqyer për të kaluar ditë të qeta duke shijuar aktivitete si peshkimi dhe ecjet në natyrë.</p>
+
+            <div class="text-container2">
+                <h4 id="title2">Turizmi dhe Rekreacioni</h4>
+                <p id="desc6">Liqeni i Brezne është një destinacion ideal për ata që dëshirojnë të kalojnë kohë në natyrë dhe të bëjnë aktivitete rekreative si kamping, ecje, dhe shëtitje me kanoe. Shumë vizitorë vijnë për të shijuar ambientin relaksues dhe për të kapur pamje fantastike të peizazheve të bukura.</p>
+                <p id="desc7">Ky liqen ofron mundësi të shkëlqyera për turizmin ekologjik dhe një mundësi të shkëlqyer për të lidhur vizitorët me natyrën e paprekur.</p>
+            </div>
+            <a href="index.html" class="btn" id="desc8">Kthehu prapa</a>
+        </div>
+
+        <div class="image-container">
+            <img src="Liqeni i Breznes.png" alt="Liqeni i Brezne">
+            <img src="Liqeni i Breznes1.png" alt="Liqeni i Brezne 2">
+        </div>
+    </div>
+
+    <script>
+        function hapModal(opcioni) {
+            let modal = document.getElementById("myModal");
+            let modalContent = document.getElementById("modalContent");
+
+            if (opcioni === 'projekti1') {
+                modalContent.innerHTML = `
+                    <h2>Të gjitha projektet e Ervinit</h2>
+                    <a href="https://ervin-cpu.github.io/Harta-e-botes/" target="_blank">https://ervin-cpu.github.io/Harta-e-botes/</a>
+                `;
+            } else if (opcioni === 'bukuria') {
+                modalContent.innerHTML = `
+                    <h2>Gjej bukurinë natyrore</h2> 
+                    <p>Malet</p>
+                    <a href="malet e sharrit.html" class="btn">Malet e sharrit</a>
+                    <a href="malet e rugoves.html" class="btn">Malet e Rugoves</a>
+                    <a href="malet e gjeravices.html" class="btn">Malet e Gjeravices</a>
+                    <p>Liqenet</p>
+                    <a href="Liqeni i Ujmanit.html" class="btn">Liqeni i Ujmanit</a>
+                    <a href="Liqeni i Mirushes.html" class="btn">Liqeni i Mirushes</a>
+                    <a href="Liqeni i Breznes.html" class="btn">Liqeni i Breznes</a>
+                `;
+            }
+             else if (opcioni === 'pamja') {
+                modalContent.innerHTML = `
+                    <h2>Zgjedh Gjuhen tende</h2>
+                    <button onclick="ndryshoGjuhe('en')">English</button>
+                    <button onclick="ndryshoGjuhe('sq')">Shqip</button>
+                `;
+            }
+
+            modal.style.display = "flex";
+        }
+
+        function mbyllModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Mbyll modal kur klikon jashtë
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Funksioni për të ndryshuar gjuhën
+        function ndryshoGjuhe(gjuha) {
+            if (gjuha === 'en') {
+                document.getElementById("desc1").innerText = "All of Ervin's projects";
+                document.getElementById("desc2").innerText = "Find the natural beauty you want to see";
+                document.getElementById("desc3").innerText = "Choose your language";
+                document.getElementById("title1").innerText = "Lake Breznes – A Natural Pearl of Kosovo";
+                document.getElementById("desc4").innerText = "Lake Breznes is a small and beautiful lake located in the southwest of Kosovo, near the city of Peja. This lake is one of the most attractive destinations for naturalists and tourists looking to enjoy the tranquility and beauty of nature.";
+                document.getElementById("desc5").innerText = "With a modest surface area, this lake offers stunning views and is known for its natural wealth and biodiversity. The lake is an excellent place to spend quiet days enjoying activities such as fishing and hiking in nature.";
+                document.getElementById("title2").innerText = "Tourism and Recreation";
+                document.getElementById("desc6").innerText = "Lake Breznes is an ideal destination for those who want to spend time in nature and engage in recreational activities such as camping, hiking, and canoeing. Many visitors come to enjoy the relaxing environment and capture fantastic views of the beautiful landscapes.";
+                document.getElementById("desc7").innerText = "This lake offers excellent opportunities for ecological tourism and a great chance to connect visitors with unspoiled nature.";
+                document.getElementById("desc8").innerText = "Go back";
+            }else if (gjuha === 'sq') {
+                document.getElementById("desc1").innerText = "Të gjitha projektet e Ervinit";
+                document.getElementById("desc2").innerText = "Gjej bukurinë natyrore që dëshiron ta shikosh";
+                document.getElementById("desc3").innerText = "Zgjidh Gjuhen tende";
+                document.getElementById("title1").innerText = "Liqeni i Breznes – Një Perlë Natyrorë e Kosovës";
+                document.getElementById("desc4").innerText = "Liqeni i Breznes është një liqen i vogël dhe i bukur që ndodhet në jugperëndim të Kosovës, afër qytetit të Pejës. Ky liqen është një nga destinacionet më tërheqëse për natyralistët dhe turistët që kërkojnë të shijojnë qetësinë dhe bukurinë e natyrës.";
+                document.getElementById("desc5").innerText = "Me një sipërfaqe modeste, ky liqen ofron pamje mahnitëse dhe është i njohur për pasurinë e tij natyrore dhe biodiversitetin. Liqeni është një vend i shkëlqyer për të kaluar ditë të qeta duke shijuar aktivitete si peshkimi dhe ecjet në natyrë.";
+                document.getElementById("title2").innerText = "Turizmi dhe Rekreacioni";
+                document.getElementById("desc6").innerText = "Liqeni i Brezne është një destinacion ideal për ata që dëshirojnë të kalojnë kohë në natyrë dhe të bëjnë aktivitete rekreative si kamping, ecje, dhe shëtitje me kanoe. Shumë vizitorë vijnë për të shijuar ambientin relaksues dhe për të kapur pamje fantastike të peizazheve të bukura.";
+                document.getElementById("desc7").innerText = "Ky liqen ofron mundësi të shkëlqyera për turizmin ekologjik dhe një mundësi të shkëlqyer për të lidhur vizitorët me natyrën e paprekur.";
+                document.getElementById("desc8").innerText = "Kthehu prapa";
+            }
+        }
+
+        // Sigurohemi që modal NUK shfaqet kur faqja hapet
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("myModal").style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

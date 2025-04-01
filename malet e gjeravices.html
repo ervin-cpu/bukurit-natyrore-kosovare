@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malet e Gjeravices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .shiriti {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-left: 10%;
+            align-items: center;
+            width: 80%;
+            height: 0.1%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .shiriti h4 {
+            margin: 2px 0;
+            line-height: 1.2; 
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none; /* Fillimisht e fshehur */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Stilizimi i linkut */
+        .modal-content a {
+            display: inline-block;
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+
+        .modal-content a:hover {
+            background-color: blue;
+            color: white;
+        }
+
+
+        .card-container1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            flex-wrap: wrap; 
+        }
+
+        .text-container1 {
+            width: 55%; 
+            padding: 20px;
+        }
+
+        .text-container1 h3 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .text-container1 p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .image-container {
+            width: 40%;
+            display: flex;
+            flex-direction: column; 
+            justify-content: space-between;
+            gap: 20px; 
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 200px; 
+        }
+
+        @media (max-width: 768px) {
+            .card-container1 {
+                flex-direction: column;
+            }
+            .image-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .text-container1 {
+                width: 100%;
+            }
+        }
+
+        .btn {
+            background: #555;
+            color: #fff;
+            display: inline-block; 
+            padding: 10px 30px; 
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center; 
+            width: 25%;
+            max-width: 300px; 
+            margin: 100px auto 100; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shiriti">
+        <div class="opsioni1" onclick="hapModal('projekti1')">
+            <h4 id="desc1">Të gjitha projektet e Ervinit</h4>
+        </div>
+        <div class="opsioni2" onclick="hapModal('bukuria')">
+            <h4 id="desc2">Gjej bukurinë natyrore që dëshiron ta shikosh</h4>
+        </div>
+        <div class="opsioni3" onclick="hapModal('pamja')">
+            <h4 id="desc3">Zgjidh Gjuhen tende</h4>
+        </div>
+    </div>
+
+    <!-- MODAL (Fshehur fillimisht) -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="mbyllModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Përmbajtja e ndryshueshme do të shfaqet këtu -->
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container1">
+        <div class="text-container1">
+            <h3 id="title1">Një Pjesë e Paprekur e Bukurisë Natyrale të Kosovës - Malet e Gjeravices</h3>
+            <p id="desc4">Malet e Gjeravices janë një nga vendet më të bukura të Kosovës, duke ofruar peizazhe mahnitëse dhe një lidhje të thellë me natyrën.</p>
+            <p id="desc5">Ky rajon malor është i njohur për kanionet e thella, ujin e pastër, dhe majat e larta që ofrojnë pamje panoramike të mrekullueshme.</p>
+
+            <div class="text-container2">
+                <h4 id="title2">Gjeografia dhe Klima:</h4>
+                <p id="desc6">Malet e Gjeravices ndodhen në jugperëndim të Kosovës dhe shtrihen përgjatë një vargu malor që krijon një hapësirë të pasur natyrore.</p>
+                <p id="desc7">Këto male janë të njohura për klimën e freskët dhe ajrin e pastër, duke ofruar një atmosferë të qetë dhe relaksuese.</p>
+            </div>
+
+            <div class="text-container3">
+                <h4 id="title3">Flora dhe Fauna:</h4>
+                <p id="desc8">Malet e Gjeravices janë shtëpi për një larmi të pasur të florës dhe faunës. Rajoni është i mbuluar nga pyje të dendura dhe bime të ndryshme, ku mund të hasen edhe lloje të ndryshme kafshësh të egra.</p>
+                <p id="desc9">Ky është një vend i shenjtë për dashamirësit e natyrës dhe të rinjtë që kërkojnë aventurë dhe qetësi.</p>
+            </div>
+            <a href="index.html" class="btn" id="desc10">Kthehu prapa</a>
+        </div>
+
+        <div class="image-container">
+            <img src="malet e gjeravices3.png" alt="Malet e Gjeravices">
+            <img src="malet e gjeravices1.png" alt="Malet e Gjeravices 1">
+            <img src="malet e gjeravices2.png" alt="Malet e Gjeravices 2">
+        </div>
+    </div>
+
+    <script>
+        function hapModal(opcioni) {
+            let modal = document.getElementById("myModal");
+            let modalContent = document.getElementById("modalContent");
+
+            if (opcioni === 'projekti1') {
+                modalContent.innerHTML = `
+                    <h2>Të gjitha projektet e Ervinit</h2>
+                    <p>Këtu mund të shikoni të gjitha projektet që ka bërë Ervini.</p>
+                    <a href="https://ervin-cpu.github.io/Harta-e-botes/" target="_blank">https://ervin-cpu.github.io/Harta-e-botes/</a>
+                `;
+            } else if (opcioni === 'bukuria') {
+                modalContent.innerHTML = `
+                    <h2>Gjej bukurinë natyrore</h2> 
+                    <p>Malet</p>
+                    <a href="malet e sharrit.html" class="btn">Malet e sharrit</a>
+                    <a href="malet e rugoves.html" class="btn">Malet e Rugoves</a>
+                    <a href="malet e gjeravices.html" class="btn">Malet e Gjeravices</a>
+                    <p>Liqenet</p>
+                    <a href="Liqeni i Ujmanit.html" class="btn">Liqeni i Ujmanit</a>
+                    <a href="Liqeni i Mirushes.html" class="btn">Liqeni i Mirushes</a>
+                    <a href="Liqeni i Breznes.html" class="btn">Liqeni i Breznes</a>
+                `;
+            }
+             else if (opcioni === 'pamja') {
+                modalContent.innerHTML = `
+                    <h2>Zgjidh pamjen që dëshiron të shikosh</h2>
+                    <button onclick="ndryshoGjuhe('en')">English</button>
+                    <button onclick="ndryshoGjuhe('sq')">Shqip</button>
+                `;
+            }
+
+            modal.style.display = "flex";
+        }
+
+        function mbyllModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Mbyll modal kur klikon jashtë
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        //  funkssioni i nderrimit te gjuhes
+        function ndryshoGjuhe(gjuha) {
+            if (gjuha === 'en') {
+                document.getElementById("desc1").innerText = "All of Ervin's projects";
+                document.getElementById("desc2").innerText = "Find the natural beauty you want to see";
+                document.getElementById("desc3").innerText = "Choose your language";
+                document.getElementById("title1").innerText = "An Untouched Piece of Natural Beauty in Kosovo - The Gjeravica Mountains";
+                document.getElementById("desc4").innerText = "The Gjeravica Mountains are one of the most beautiful places in Kosovo, offering stunning landscapes and a deep connection with nature.";
+                document.getElementById("desc5").innerText = "This mountainous region is known for its deep canyons, clear waters, and high peaks that offer breathtaking panoramic views.";
+                document.getElementById("title2").innerText = "Geography and Climate:";
+                document.getElementById("desc6").innerText = "The Gjeravica Mountains are located in the southwest of Kosovo and stretch along a mountain range that creates a rich natural space.";
+                document.getElementById("desc7").innerText = "These mountains are known for their cool climate and clean air, providing a calm and relaxing atmosphere.";
+                document.getElementById("title3").innerText = "Flora and Fauna:";
+                document.getElementById("desc8").innerText = "The Gjeravica Mountains are home to a rich variety of flora and fauna. The region is covered with dense forests and various plants, where different species of wild animals can also be found.";
+                document.getElementById("desc9").innerText = "This is a sacred place for nature lovers and young people seeking adventure and tranquility.";
+                document.getElementById("desc10").innerText = "Go back";
+            }else if (gjuha === 'sq') {
+                document.getElementById("desc1").innerText = "Të gjitha projektet e Ervinit";
+                document.getElementById("desc2").innerText = "Gjej bukurinë natyrore që dëshiron ta shikosh";
+                document.getElementById("desc3").innerText = "Zgjidh Gjuhen tende";
+                document.getElementById("title1").innerText = "Një Pjesë e Paprekur e Bukurisë Natyrale të Kosovës - Malet e Gjeravices";
+                document.getElementById("desc4").innerText = "Malet e Gjeravices janë një nga vendet më të bukura të Kosovës, duke ofruar peizazhe mahnitëse dhe një lidhje të thellë me natyrën.";
+                document.getElementById("desc5").innerText = "Ky rajon malor është i njohur për kanionet e thella, ujin e pastër, dhe majat e larta që ofrojnë pamje panoramike të mrekullueshme.";
+                document.getElementById("title2").innerText = "Gjeografia dhe Klima:";
+                document.getElementById("desc6").innerText = "Malet e Gjeravices ndodhen në jugperëndim të Kosovës dhe shtrihen përgjatë një vargu malor që krijon një hapësirë të pasur natyrore.";
+                document.getElementById("desc7").innerText = "Këto male janë të njohura për klimën e freskët dhe ajrin e pastër, duke ofruar një atmosferë të qetë dhe relaksuese.";
+                document.getElementById("title3").innerText = "Flora dhe Fauna:";
+                document.getElementById("desc8").innerText = "Malet e Gjeravices janë shtëpi për një larmi të pasur të florës dhe faunës. Rajoni është i mbuluar nga pyje të dendura dhe bime të ndryshme, ku mund të hasen edhe lloje të ndryshme kafshësh të egra.";
+                document.getElementById("desc9").innerText = "Ky është një vend i shenjtë për dashamirësit e natyrës dhe të rinjtë që kërkojnë aventurë dhe qetësi.";
+                document.getElementById("desc10").innerText = "Kthehu prapa";
+            }
+        }
+
+        // Sigurohemi që modal NUK shfaqet kur faqja hapet
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("myModal").style.display = "none";
+        });
+    </script>
+
+
+</body>
+</html>

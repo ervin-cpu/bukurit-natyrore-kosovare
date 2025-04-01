@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukuritë natyrore të Kosovës</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+      }
+
+      .shiriti {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-left: 10%;
+        align-items: center;
+        width: 80%;
+        height: 0.1%;
+        background-color: #f1f1f1;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .shiriti h4 {
+        margin: 2px 0;
+        line-height: 1.2; 
+    }
+
+    /* MODAL STYLES */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .modal-content a {
+        display: inline-block;
+        text-decoration: none;
+        color: blue;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: 1px solid blue;
+        border-radius: 5px;
+    }
+
+    .modal-content a:hover {
+        background-color: blue;
+        color: white;
+    }
+
+    .card-container1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    .text-container1 {
+        width: 55%;
+        padding: 20px;
+    }
+
+    .text-container1 h3 {
+        margin-top: 0;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .text-container1 p {
+        margin: 10px 0;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .image-container {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        max-height: 200px;
+    }
+
+    @media (max-width: 768px) {
+        .card-container1 {
+            flex-direction: column;
+        }
+        .image-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .text-container1 {
+            width: 100%;
+        }
+    }
+
+    .btn {
+        background: #555;
+        color: #fff;
+        display: inline-block;
+        padding: 10px 30px;
+        text-decoration: none;
+        border-radius: 4px;
+        text-align: center;
+        width: 25%;
+        max-width: 300px;
+        margin: 100px auto 100;
+    }
+</style>
+</head>
+<body>
+
+    <div class="shiriti">
+        <div class="opsioni1" onclick="hapModal('projekti1')">
+            <h4 id="desc10">Të gjitha projektet e Ervinit</h4>
+        </div>
+        <div class="opsioni2" onclick="hapModal('bukuria')">
+            <h4 id="desc12">Gjej bukurinë natyrore që dëshiron ta shikosh</h4>
+        </div>
+        <div class="opsioni3" onclick="hapModal('pamja')">
+            <h4 id="desc14">Zgjidh Gjuhen tende</h4>
+        </div>
+    </div>
+
+    <!-- MODAL (Fshehur fillimisht) -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="mbyllModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Përmbajtja do të shfaqet këtu -->
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container1">
+        <div class="text-container1">
+            <h3 id="title">Një Pjesë e Paprekur e Bukurisë Natyrale të Kosovës</h3>
+            <p id="desc1">Malet e Sharrit shtrihen në juglindje të Kosovës dhe janë një nga zonat më të bukura dhe të ruajtura natyralisht në vend.</p>
+            <p id="desc2">Ky masiv malor është i njohur për peizazhet e tij mahnitëse, luginat e thella, dhe majat e larta që ofrojnë pamje panoramike të mrekullueshme.</p>
+
+            <div class="text-container2">
+                <h4 id="title1">Gjeografia dhe Klima:</h4>
+                <p id="desc3">Malet e Sharrit përbëhen nga një varg i lartë malor që shtrihet përgjatë kufirit mes Kosovës dhe Maqedonisë së Veriut, duke krijuar një hapësirë të pasur natyrore.</p>
+                <p id="desc4">Këto male janë të njohura për klimën e freskët dhe ajrin e pastër, duke ofruar një ndjesi të thellë qetësie dhe lidhjeje me natyrën.</p>
+            </div>
+
+            <div class="text-container3">
+                <h4 id="title2">Flora dhe Fauna:</h4>
+                <p id="desc5">Ky rajon është gjithashtu shtëpi për një larmi të pasur të florës dhe faunës. Pjesa më e madhe e territorit është e mbuluar nga pyje të dendur dhe vegjetacion i larmishëm, ku mund të hasen lloje të ndryshme bimësh dhe kafshësh, disa prej të cilave janë të rralla dhe të mbrojtura.</p>
+                <p id="desc6">Këtu mund të shihen lloje të ndryshme drurësh si lisi, pisha, dhe bredhi, ndërsa faunën përbëjnë lloje të ndryshme gjitarësh, shpezësh dhe amfibësh.</p>
+            </div>
+            <a href="index.html" class="btn" id="desc15">Kthehu prapa</a>
+        </div>
+        <div class="image-container">
+            <img src="Malet e sharrit.png" alt="Malet e Sharrit">
+            <img src="Malet e sharrit1.png" alt="Malet e Sharrit 1">
+            <img src="Malet e sharrit2.png" alt="Malet e Sharrit 2">
+        </div>
+    </div>
+
+    <script>
+        function hapModal(opcioni) {
+            let modal = document.getElementById("myModal");
+            let modalContent = document.getElementById("modalContent");
+    
+            if (opcioni === 'projekti1') {
+                modalContent.innerHTML = `
+                    <h2>Të gjitha projektet e Ervinit</h2>
+                    <p>Këtu mund të shikoni të gjitha projektet që ka bërë Ervini.</p>
+                    <a href="https://ervin-cpu.github.io/Harta-e-botes/" target="_blank">https://ervin-cpu.github.io/Harta-e-botes/</a>
+                `;
+            } else if (opcioni === 'bukuria') {
+                modalContent.innerHTML = `
+                    <h2>Gjej bukurinë natyrore</h2> 
+                    <p>Malet</p>
+                    <a href="malet e sharrit.html" class="btn">Malet e sharrit</a>
+                    <a href="malet e rugoves.html" class="btn">Malet e Rugoves</a>
+                    <a href="malet e gjeravices.html" class="btn">Malet e Gjeravices</a>
+                    <p>Liqenet</p>
+                    <a href="Liqeni i Ujmanit.html" class="btn">Liqeni i Ujmanit</a>
+                    <a href="Liqeni i Mirushes.html" class="btn">Liqeni i Mirushes</a>
+                    <a href="Liqeni i Breznes.html" class="btn">Liqeni i Breznes</a>
+                `;
+            } else if (opcioni === 'pamja') {
+                modalContent.innerHTML = `
+                    <h2>Zgjidh Gjuhen tende</h2>
+                    <button onclick="ndryshoGjuhe('en')">English</button>
+                    <button onclick="ndryshoGjuhe('sq')">Shqip</button>
+                `;
+            }
+    
+            modal.style.display = "flex";
+        }
+    
+        function mbyllModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    
+        // Funksioni për ndryshimin e gjuhës
+        function ndryshoGjuhe(gjuha) {
+            if (gjuha === 'en') {
+                document.getElementById("title").innerText = "An Untouched Part of Kosovo's Natural Beauty";
+                document.getElementById("desc1").innerText = "The Sharr Mountains stretch in the southeast of Kosovo and are one of the most beautiful and naturally preserved areas in the country.";
+                document.getElementById("desc2").innerText = "This mountain massif is known for its stunning landscapes, deep valleys, and high peaks that offer breathtaking panoramic views.";
+                document.getElementById("title1").innerText = "Geography and Climate:";
+                document.getElementById("desc3").innerText = "The Sharr Mountains consist of a high mountain range that stretches along the border between Kosovo and North Macedonia, creating a rich natural space.";
+                document.getElementById("desc4").innerText = "These mountains are known for their cool climate and clean air, providing a deep sense of tranquility and connection with nature.";
+                document.getElementById("title2").innerText = "Flora and Fauna:";
+                document.getElementById("desc5").innerText = "This region is also home to a rich variety of flora and fauna. Most of the territory is covered by dense forests and diverse vegetation, where various species of plants and animals can be found, some of which are rare and protected.";
+                document.getElementById("desc6").innerText = "Here you can see various types of trees such as oak, pine, and fir, while the fauna consists of various species of mammals, birds, and amphibians.";
+                document.getElementById("desc15").innerText = "Go back";
+                document.getElementById("desc14").innerText = "Choose your language";
+                document.getElementById("desc12").innerText = "Find the natural beauty you want to see";
+                document.getElementById("desc10").innerText = "All of Ervin's projects";
+            } else if (gjuha === 'sq') {
+                document.getElementById("title").innerText = "Një Pjesë e Paprekur e Bukurisë Natyrale të Kosovës";
+                document.getElementById("desc1").innerText = "Malet e Sharrit shtrihen në juglindje të Kosovës dhe janë një nga zonat më të bukura dhe të ruajtura natyralisht në vend.";
+                document.getElementById("desc2").innerText = "Ky masiv malor është i njohur për peizazhet e tij mahnitëse, luginat e thella, dhe majat e larta që ofrojnë pamje panoramike të mrekullueshme.";
+                document.getElementById("title1").innerText = "Gjeografia dhe Klima:";
+                document.getElementById("desc3").innerText = "Malet e Sharrit përbëhen nga një varg i lartë malor që shtrihet përgjatë kufirit mes Kosovës dhe Maqedonisë së Veriut, duke krijuar një hapësirë të pasur natyrore.";
+                document.getElementById("desc4").innerText = "Këto male janë të njohura për klimën e freskët dhe ajrin e pastër, duke ofruar një ndjesi të thellë qetësie dhe lidhjeje me natyrën.";
+                document.getElementById("title2").innerText = "Flora dhe Fauna:";
+                document.getElementById("desc5").innerText = "Ky rajon është gjithashtu shtëpi për një larmi të pasur të florës dhe faunës. Pjesa më e madhe e territorit është e mbuluar nga pyje të dendur dhe vegjetacion i larmishëm, ku mund të hasen lloje të ndryshme bimësh dhe kafshësh, disa prej të cilave janë të rralla dhe të mbrojtura.";
+                document.getElementById("desc6").innerText = "Këtu mund të shihen lloje të ndryshme drurësh si lisi, pisha, dhe bredhi, ndërsa faunën përbëjnë lloje të ndryshme gjitarësh, shpezësh dhe amfibësh.";
+                document.getElementById("desc15").innerText = "Kthehu prapa";
+                document.getElementById("desc14").innerText = "Zgjedh gjuhen tende";
+                document.getElementById("desc12").innerText = "Gjej bukurinë natyrore që dëshiron ta shikosh";
+                document.getElementById("desc10").innerText = "Të gjitha projektet e Ervinit";
+            }
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("myModal").style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
