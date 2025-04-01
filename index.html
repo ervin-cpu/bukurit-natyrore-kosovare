@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,11 +16,165 @@
             background-color: #f0f0f0;
         }
 
+        .shiriti {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-left: 10%;
+            align-items: center;
+            width: 80%;
+            height: 0.1%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .shiriti h4 {
+            margin: 2px 0;
+            line-height: 1.2; 
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none; /* Fillimisht e fshehur */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Stilizimi i linkut */
+        .modal-content a {
+            display: inline-block;
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+
+        .modal-content a:hover {
+            background-color: blue;
+            color: white;
+        }             
+
+        /*Mali kryesor */
+        .mali-kryesor-i-pjeses-se-par {
+            width: 100%;
+            height: 520px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mali-kryesor-i-pjeses-se-par img {
+            margin-top: 50px;
+            width: 40%;
+            height: 75%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            right: 0%;
+        }
+
+        .mali-kryesor-i-pjeses-se-par h3{
+            margin-top: 50px;
+            margin-left: 20%;
+            height: 10%;
+            right: 40%;
+        }
+
+        .mali-kryesor-i-pjeses-se-par p {
+            margin-top: -6px;
+            margin-left: 2%;
+            height: 6%;
+            right: 40%;
+        }
+
+        .mali-kryesor-i-pjeses-se-par li {
+            margin-left: 2%;
+            height: 6%;
+            right: 40%;
+        }
+
+        .mali-kryesor-i-pjeses-se-par h3{
+            margin-top: 50px;
+            margin-left: 20%;
+            height: 10%;
+            right: 40%;
+        }
+
+        /* Liqeni kryesor */
+        .liqeni-kryesor-i-pjeses-se-par {
+            width: 100%;
+            height: 520px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .liqeni-kryesor-i-pjeses-se-par img {
+            margin-top: 50px;
+            width: 40%;
+            height: 75%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0%;
+        }
+
+        .liqeni-kryesor-i-pjeses-se-par li {
+            margin-bottom: 40%;
+            margin-left: 2%;
+            height: 6%;
+            right: 40%;
+        }
+        
+        .liqeni-kryesor-i-pjeses-se-par h3 {
+            margin-top: 50px;
+            margin-left: 20%;
+            height: 10%;
+            margin-left: 50%;
+        }
+
+        .liqeni-kryesor-i-pjeses-se-par p {
+            margin-top: -6px;
+            margin-bottom: 50px;
+            margin-left: 2%;
+            height: 6%;
+            margin-left: 50%;
+        }
+
         .card-container, .card-container1 {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 100px;
+            margin-top: -20px;
         }
 
         .card, .card1 {
@@ -51,7 +205,7 @@
         }
 
         .malet-rugoves .btn {
-            margin-top: 107px;
+            margin-top: 130px;
         }
 
         /* Malet e Gjeravicës */
@@ -62,7 +216,7 @@
         }
 
         .malet-gjeravices .btn {
-            margin-top: 89px;
+            margin-top: 110px;
         }
 
         /* Liqeni i Ujmanit */
@@ -127,60 +281,254 @@
     </style>
 </head>
 <body>
+    
+    <div class="shiriti">
+        <div class="opsioni1" onclick="hapModal('projekti1')">
+            <h4 id="desc1">Të gjitha projektet e Ervinit</h4>
+        </div>
+        <div class="opsioni2" onclick="hapModal('bukuria')">
+            <h4 id="desc2">Gjej bukurinë natyrore që dëshiron ta shikosh</h4>
+        </div>
+        <div class="opsioni3" onclick="hapModal('pamja')">
+            <h4 id="desc3">Zgjidh Gjuhen Tende</h4>
+        </div>
+    </div>
+
+     <!-- MODAL (Fshehur fillimisht) -->
+     <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="mbyllModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Përmbajtja e ndryshueshme do të shfaqet këtu -->
+            </div>
+        </div>
+    </div>
+
+    <div class="mali-kryesor-i-pjeses-se-par">
+        <img src="Pamja e Malit kryesor.png" alt="#">
+        <h3 id="title1">Te mirat qe ofrojn Malet e Kosoves</h3>
+        <p id="desc4">Kosova ka një natyrë të pasur dhe peizazhe të larmishme, duke përfshirë fusha, kodra, male etj.</p>
+        <p id="desc5">Klima e saj është kryesisht kontinentale, me dimra të ftohtë dhe vera të ngrohta.</p>
+        <p id="desc6">Malet e Kosoves jane shum te mira per nga bukuria e tyre por edhe ofrojn nje turizem shum te mire.</p>
+        <p id="desc7">Malet e Kosoves kane nje temperatur shume te mir qe ia mundeson kosoves nje turizem shum te mir</p>
+        <p id="desc8">por mundeson edhe nje eksplorim te mjaftueshem te ketyre maleve:</p>
+        <ul>
+            <li id="desc9">Maleve te Sharrit</li>
+            <li id="desc10">Maleve te Rugoves</li>
+            <li id="desc11">Maleve te Gjeravices</li>
+            <li id="desc12">Malet ne Bog</li>
+            <li id="desc13">Prevalla</li>
+            <li id="desc14">Brezovica</li></ul>
+    </div>
+
     <div class="card-container">
         <div class="card malet-sharrit">
             <img src="Malet e sharrit.png" alt="Malet e Sharrit">
             <div class="card-content">
-                <h3>Malet e Sharrit</h3>
-                <p>Një pjesë e paprekur e bukurisë natyrore të Kosovës.</p>
-                <p>Malet e Sharrit shtrihen në juglindje të Kosovës dhe janë një nga zonat më të bukura dhe të ruajtura natyralisht në vend.</p>
-                <a href="malet e sharrit.html" class="btn">Lexo më shumë</a>
+                <h3 id="title2">Malet e Sharrit</h3>
+                <p id="desc15">Një pjesë e paprekur e bukurisë natyrore të Kosovës.</p>
+                <p id="desc16">Malet e Sharrit shtrihen në juglindje të Kosovës dhe janë një nga zonat më të bukura dhe të ruajtura natyrisht në kete vend.</p>
+                <a href="malet e sharrit.html" class="btn" id="desc17">Lexo më shumë</a>
             </div>
         </div>
         <div class="card malet-rugoves">
-            <img src="Malet e Rugoves.png" alt="Malet e Rugovës">
+            <img src="Malet e rugoves.png" alt="Malet e Rugovës">
             <div class="card-content">
-                <h3>Malet e Rugovës</h3>
-                <p>Malet e Rugovës janë të njohura për pamjet e tyre spektakolare, me lartësi të mëdha, kanione të thella dhe grykëza të ngushta.</p>
-                <a href="malet e rugoves.html" class="btn">Lexo më shumë</a>
+                <h3 id="title3">Malet e Rugovës</h3>
+                <p id="desc18">Malet e Rugovës janë të njohura për pamjet e tyre spektakolare, me lartësi të mëdha, kanione të thella dhe grykëza të ngushta.</p>
+                <a href="malet e rugoves.html" class="btn" id="desc19">Lexo më shumë</a>
             </div>
         </div>
         <div class="card malet-gjeravices">
-            <img src="malet e gjeravices3.png" alt="Malet e Gjeravicës">
+            <img src="Malet e gjeravices3.png" alt="Malet e Gjeravicës">
             <div class="card-content">
-                <h3>Malet e Gjeravicës</h3>
-                <p>Mali i Gjeravicës është maja më e lartë në Kosovë dhe një destinacion i mrekullueshëm për aventurierët dhe alpinistët.</p>
-                <a href="malet e gjeravices.html" class="btn">Lexo më shumë</a>
+                <h3 id="title4">Malet e Gjeravicës</h3>
+                <p id="desc20">Mali i Gjeravicës është maja më e lartë në Kosovë dhe një destinacion i mrekullueshëm për aventurierët dhe alpinistët.</p>
+                <a href="malet e gjeravices.html" class="btn" id="desc21">Lexo më shumë</a>
             </div>
         </div>
     </div>
+
+
+    <div class="liqeni-kryesor-i-pjeses-se-par">
+        <img src="Pamja e Liqenit kryesor.png" alt="">
+        <h3 id="title8">Te mirat qe ofrojn Liqenet e Kosoves</h3>
+        <p id="desc31">Kosova ka disa liqene të bukura dhe të rëndësishme, të shpërndara nëpër rajone të ndryshme. Disa prej tyre janë artificiale dhe shërbejnë si burime uji për qytetet, ndërsa të tjerët janë natyrorë, të vendosur në zona malore me pamje të mrekullueshme.</p>
+        <p id="desc32">Liqenet e Kosovës ofrojnë mundësi për aktivitete të ndryshme si peshkimi, ecja dhe fotografimi i natyrës. Disa liqene janë të njohura për biodiversitetin e tyre dhe janë shtëpi për shumë lloje të zogjve dhe kafshëve të tjera.</p>
+        <p id="desc33">Disa prej tyre janë të rrethuar nga pyje dhe peizazhe që tërheqin vizitorë gjatë gjithë vitit. Shumë njerëz shkojnë atje për piknik, peshkim, ecje në natyrë dhe fotografi. Disa janë të aksesueshëm me makinë, ndërsa për të tjerët duhet ecje malore.</p>
+        <p id="desc34">Ka edhe liqene që shërbejnë si pika turistike, me restorante dhe hapësira rekreative përreth, ndërsa disa janë zona të mbrojtura ku ndalohet noti dhe aktivitetet ujore për shkak të rëndësisë së tyre për furnizimin me ujë. Në disa vende mund të gjesh shtigje për ecje, ndërsa në të tjerat duhet të ngjitesh për të arritur deri te uji.</p>
+    </div>
+
 
     <div class="card-container1">
         <div class="card1 liqeni-ujmanit">
             <img src="Liqeni i Ujmanit2.png" alt="Liqeni i Ujmanit">
             <div class="card-content1">
-                <h3>Liqeni i Ujmanit</h3>
-                <p>Liqeni i Ujmanit është liqeni më i madh në Kosovë.</p>
-                <p>Ai ndodhet në pjesën veriperëndimore të vendit, kryesisht në Komunën e Zubin Potokut, por shtrihet pjesërisht edhe në Serbi.</p>
-                <a href="Liqeni i Ujmanit.html" class="btn">Lexo më shumë</a>
+                <h3 id="title5">Liqeni i Ujmanit</h3>
+                <p id="desc22">Liqeni i Ujmanit është liqeni më i madh në Kosovë.</p>
+                <p id="desc23">Ai ndodhet në pjesën veriperëndimore të vendit, kryesisht në Komunën e Zubin Potokut, por shtrihet pjesërisht edhe në Serbi.</p>
+                <a href="Liqeni i Ujmanit.html" class="btn" id="desc24">Lexo më shumë</a>
             </div>
         </div>  
         <div class="card1 liqeni-mirushes">
             <img src="Liqeni i Mirushes.png" alt="Liqeni i Mirushes">
             <div class="card-content1">
-                <h3>Liqeni i Mirushës</h3>
-                <p>Liqeni i Mirushës është një destinacion i mrekullueshëm për ecje, fotografi natyrore dhe eksplorim të ujëvarave.</p>
-                <a href="Liqeni i Mirushes.html" class="btn">Lexo më shumë</a>
+                <h3 id="title6">Liqeni i Mirushës</h3>
+                <p id="desc25">Liqeni i Mirushës është një destinacion i mrekullueshëm për ecje, fotografi natyrore dhe eksplorim të ujëvarave.</p>
+                <a href="Liqeni i Mirushes.html" class="btn" id="desc26">Lexo më shumë</a>
             </div>
         </div>
         <div class="card1 liqeni-breznes">
             <img src="Liqeni i Breznes.png" alt="Liqeni i Breznes">
             <div class="card-content1">
-                <h3>Liqeni i Breznes</h3>
-                <p>Liqeni i Breznës ndodhet në Jug të Kosovës dhe është një nga liqenet më të bukura natyrore në rajon, i njohur për peizazhet e tij mahnitëse dhe biodiversitetin e pasur.</p>
-                <a href="Liqeni i Breznes.html" class="btn">Lexo më shumë</a>
+                <h3 id="title7">Liqeni i Breznes</h3>
+                <p id="desc27">Liqeni i Breznës ndodhet në Jug të Kosovës dhe është një nga liqenet më të bukura natyrore në rajon, i njohur për peizazhet e tij mahnitëse dhe biodiversitetin e pasur.</p>
+                <a href="Liqeni i Breznes.html" class="btn" id="desc28">Lexo më shumë</a>
             </div>
         </div>
-    </div>  
+    </div> 
+
+    <script>
+        function hapModal(opcioni) {
+            let modal = document.getElementById("myModal");
+            let modalContent = document.getElementById("modalContent");
+
+            if (opcioni === 'projekti1') {
+                modalContent.innerHTML = `
+                    <h2>Të gjitha projektet e Ervinit</h2>
+                    <a href="https://ervin-cpu.github.io/Harta-e-botes/" target="_blank">https://ervin-cpu.github.io/Harta-e-botes/</a>
+                `;
+            } else if (opcioni === 'bukuria') {
+                modalContent.innerHTML = `
+                    <h2z>Gjej bukurinë natyrore</h2> 
+                    <p>Malet</p>
+                    <a href="malet e sharrit.html" class="btn">Malet e sharrit</a>
+                    <a href="malet e rugoves.html" class="btn" >Malet e Rugoves</a>
+                    <a href="malet e gjeravices.html" class="btn">Malet e Gjeravices</a>
+                    <p>Liqenet</p>
+                    <a href="Liqeni i Ujmanit.html" class="btn">Liqeni i Ujmanit</a>
+                    <a href="Liqeni i Mirushes.html" class="btn">Liqeni i Mirushes</a>
+                    <a href="Liqeni i Breznes.html" class="btn">Liqeni i Breznes</a>
+                `;
+            }
+             else if (opcioni === 'pamja') {
+                modalContent.innerHTML = `
+                    <h2>Zgjedh Gjuhen tende</h2>
+                    <button onclick="ndryshoGjuhe('en')">English</button>
+                    <button onclick="ndryshoGjuhe('sq')">Shqip</button>
+                `;
+            }
+
+            modal.style.display = "flex";
+        }
+
+        function mbyllModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Mbyll modal kur klikon jashtë
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Funksioni për të ndryshuar gjuhën
+        function ndryshoGjuhe(gjuha) {
+            if (gjuha === 'en') {
+                document.getElementById("desc1").innerText = "All of Ervin's projects";
+                document.getElementById("desc2").innerText = "Find the natural beauty you want to see";
+                document.getElementById("desc3").innerText = "Choose your language";
+                document.getElementById("title1").innerText = "The benefits of the mountains of Kosovo";
+                document.getElementById("desc4").innerText = "Kosovo has a rich nature and diverse landscapes, including fields, hills, mountains, etc.";
+                document.getElementById("desc5").innerText = "Its climate is mostly continental, with cold winters and warm summers.";
+                document.getElementById("desc6").innerText = "The mountains of Kosovo are very good for their beauty but also offer a very good tourism.";
+                document.getElementById("desc7").innerText = "The mountains of Kosovo have a very good temperature that allows Kosovo to have very good tourism.";
+                document.getElementById("desc8").innerText = "but also allows for sufficient exploration of these mountains:";
+                document.getElementById("desc9").innerText = "Sharri Mountains";
+                document.getElementById("desc10").innerText = "Rugova Mountains";
+                document.getElementById("desc11").innerText = "Gjeravica Mountains";
+                document.getElementById("desc12").innerText = "Mountains in Bog";
+                document.getElementById("desc13").innerText = "Prevalla";
+                document.getElementById("desc14").innerText = "Brezovica";
+                document.getElementById("title2").innerText = "Sharri Mountains";
+                document.getElementById("desc15").innerText = "An untouched part of the natural beauty of Kosovo.";
+                document.getElementById("desc16").innerText = "The Sharri Mountains stretch in the southeast of Kosovo and are one of the most beautiful and naturally preserved areas in this country.";
+                document.getElementById("desc17").innerText = "Read more";
+                document.getElementById("title3").innerText = "Rugova Mountains";
+                document.getElementById("desc18").innerText = "The Rugova Mountains are known for their spectacular views, with high altitudes, deep canyons and narrow gorges.";
+                document.getElementById("desc19").innerText = "Read more";
+                document.getElementById("desc20").innerText = "Mount Gjeravica is the highest peak in Kosovo and a wonderful destination for adventurers and climbers.";
+                document.getElementById("desc21").innerText = "Read more";
+                document.getElementById("title4").innerText = "Gjeravica Mountains";
+                document.getElementById("desc22").innerText = "Lake Ujmani is the largest lake in Kosovo.";
+                document.getElementById("desc23").innerText = "It is located in the northwestern part of the country, mainly in the Municipality of Zubin Potok, but it also extends partially into Serbia.";
+                document.getElementById("desc24").innerText = "Read more";
+                document.getElementById("title5").innerText = "Lake Ujmani";
+                document.getElementById("desc25").innerText = "Lake Mirushë is a wonderful destination for hiking, nature photography and waterfall exploration.";
+                document.getElementById("desc26").innerText = "Read more";
+                document.getElementById("title6").innerText = "Lake Mirushë";
+                document.getElementById("desc27").innerText = "Lake Breznes is located in the south of Kosovo and is one of the most beautiful natural lakes in the region, known for its stunning landscapes and rich biodiversity.";
+                document.getElementById("desc28").innerText = "Read more";
+                document.getElementById("title7").innerText = "Lake Breznes";
+                document.getElementById("desc29").innerText = "Lake Breznes is located in the south of Kosovo and is one of the most beautiful natural lakes in the region, known for its stunning landscapes and rich biodiversity.";
+                document.getElementById("desc30").innerText = "Read more";
+                document.getElementById("title8").innerText = "The benefits of the lakes of Kosovo";
+                document.getElementById("desc31").innerText = "Kosovo has several beautiful and important lakes, scattered across different regions. Some of them are artificial and serve as water sources for cities, while others are natural, located in mountainous areas with stunning views.";
+                document.getElementById("desc32").innerText = "The lakes of Kosovo offer opportunities for various activities such as fishing, hiking and nature photography. Some lakes are known for their biodiversity and are home to many species of birds and other animals.";
+                document.getElementById("desc33").innerText = "Some of them are surrounded by forests and landscapes that attract visitors throughout the year. Many people go there for picnics, fishing, hiking in nature and photography. Some are accessible by car, while others require hiking.";
+                document.getElementById("desc34").innerText = "There are also lakes that serve as tourist spots, with restaurants and recreational areas around them, while others are protected areas where swimming and water activities are prohibited due to their importance for water supply. In some places you can find hiking trails, while in others you have to climb to reach the water.";
+            }else if (gjuha === 'sq') {
+                document.getElementById("desc1").innerText = "Të gjitha projektet e Ervinit";
+                document.getElementById("desc2").innerText = "Gjej bukurinë natyrore që dëshiron ta shikosh";
+                document.getElementById("desc3").innerText = "Zgjidh Gjuhen Tende";
+                document.getElementById("title1").innerText = "Te mirat qe ofrojn Malet e Kosoves";
+                document.getElementById("desc4").innerText = "Kosova ka një natyrë të pasur dhe peizazhe të larmishme, duke përfshirë fusha, kodra, male etj.";
+                document.getElementById("desc5").innerText = "Klima e saj është kryesisht kontinentale, me dimra të ftohtë dhe vera të ngrohta.";
+                document.getElementById("desc6").innerText = "Malet e Kosoves jane shum te mira per nga bukuria e tyre por edhe ofrojn nje turizem shum te mire.";
+                document.getElementById("desc7").innerText = "Malet e Kosoves kane nje temperatur shume te mir qe ia mundeson kosoves nje turizem shum te mir";
+                document.getElementById("decs8").innerText = "por mundeson edhe nje eksplorim te mjaftueshem te ketyre maleve:";
+                document.getElementById("desc9").innerText = "Maleve te Sharrit";
+                document.getElementById("desc10").innerText = "Maleve te Rugoves";
+                document.getElementById("desc11").innerText = "Maleve te Gjeravices";
+                document.getElementById("desc12").innerText = "Malet ne Bog";
+                document.getElementById("desc13").innerText = "Prevalla";
+                document.getElementById("desc14").innerText = "Brezovica";
+                document.getElementById("title2").innerText = "Malet e Sharrit";
+                document.getElementById("desc15").innerText = "Një pjesë e paprekur e bukurisë natyrore të Kosovës.";
+                document.getElementById("desc16").innerText = "Malet e Sharrit shtrihen në juglindje të Kosovës dhe janë një nga zonat më të bukura dhe të ruajtura natyrisht në kete vend.";
+                document.getElementById("desc17").innerText = "Lexo më shumë";
+                document.getElementById("title3").innerText = "Malet e Rugoves";
+                document.getElementById("desc18").innerText = "Malet e Rugovës janë të njohura për pamjet e tyre spektakolare, me lartësi të mëdha, kanione të thella dhe grykëza të ngushta.";
+                document.getElementById("desc19").innerText = "Lexo më shumë";
+                document.getElementById("desc20").innerText = "Mali i Gjeravicës është maja më e lartë në Kosovë dhe një destinacion i mrekullueshëm për aventurierët dhe alpinistët.";
+                document.getElementById("desc21").innerText = "Lexo më shumë";
+                document.getElementById("title4").innerText = "Malet e Gjeravicës";
+                document.getElementById("desc22").innerText = "Liqeni i Ujmanit është liqeni më i madh në Kosovë.";
+                document.getElementById("desc23").innerText = "Ai ndodhet në pjesën veriperëndimore të vendit, kryesisht në Komunën e Zubin Potokut, por shtrihet pjesërisht edhe në Serbi.";
+                document.getElementById("desc24").innerText = "Lexo më shumë";
+                document.getElementById("title5").innerText = "Liqeni i Ujmanit";
+                document.getElementById("decs25").innerText = "Liqeni i Mirushës është një destinacion i mrekullueshëm për ecje, fotografi natyrore dhe eksplorim të ujëvarave.";
+                document.getElementById("desc26").innerText = "Lexo më shumë";
+                document.getElementById("title6").innerText = "Liqeni i Mirushës";
+                document.getElementById("desc27").innerText = "Liqeni i Breznës ndodhet në Jug të Kosovës dhe është një nga liqenet më të bukura natyrore në rajon, i njohur për peizazhet e tij mahnitëse dhe biodiversitetin e pasur.";
+                document.getElementById("desc28").innerText = "Lexo më shumë";
+                document.getElementById("title7").innerText = "Liqeni i Breznes";
+                document.getElementById("desc29").innerText = "Liqeni i Breznes ndodhet në Jug të Kosovës dhe është një nga liqenet më të bukura natyrore në rajon, i njohur për peizazhet e tij mahnitëse dhe biodiversitetin e pasur.";
+                document.getElementById("desc30").innerText = "Lexo më shumë";
+                document.getElementById("title8").innerText = "Te mirat qe ofrojn Liqenet e Kosoves";
+                document.getElementById("desc31").innerText = "Kosova ka disa liqene të bukura dhe të rëndësishme, të shpërndara nëpër rajone të ndryshme. Disa prej tyre janë artificiale dhe shërbejnë si burime uji për qytetet, ndërsa të tjerët janë natyrorë, të vendosur në zona malore me pamje të mrekullueshme.";
+                document.getElementById("desc32").innerText = "Liqenet e Kosovës ofrojnë mundësi për aktivitete të ndryshme si peshkimi, ecja dhe fotografimi i natyrës. Disa liqene janë të njohura për biodiversitetin e tyre dhe janë shtëpi për shumë lloje të zogjve dhe kafshëve të tjera.";
+                document.getElementById("desc33").innerText = "Disa prej tyre janë të rrethuar nga pyje dhe peizazhe që tërheqin vizitorë gjatë gjithë vitit. Shumë njerëz shkojnë atje për piknik, peshkim, ecje në natyrë dhe fotografi. Disa janë të aksesueshëm me makinë, ndërsa për të tjerët duhet ecje malore.";
+                document.getElementById("desc34").innerText = "Ka edhe liqene që shërbejnë si pika turistike, me restorante dhe hapësira rekreative përreth, ndërsa disa janë zona të mbrojtura ku ndalohet noti dhe aktivitetet ujore për shkak të rëndësisë së tyre për furnizimin me ujë. Në disa vende mund të gjesh shtigje për ecje, ndërsa në të tjerat duhet të ngjitesh për të arritur deri te uji.";
+            }
+        }
+
+        // Sigurohemi që modal NUK shfaqet kur faqja hapet
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("myModal").style.display = "none";
+        });
+    </script>
 </body>
 </html>
